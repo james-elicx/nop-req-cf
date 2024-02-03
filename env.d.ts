@@ -1,3 +1,12 @@
+import type { NextRequest as OriginalNextRequest } from 'next/server';
+import 'next/server';
+
+declare module 'next/server' {
+  class NextRequest extends OriginalNextRequest {
+    cf: IncomingRequestCfProperties;
+  }
+}
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -10,4 +19,4 @@ declare global {
   }
 }
 
-export {}
+export {};
